@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    .incremental-input {
+	max-width: 13.2rem;
+}
+
+.incremental-input input[type=text] {
+	border-left: none;
+}
+
+.incremental-input .input-group-addon {
+	background: #fff;
+	cursor: pointer; 
+}
+</style>
+<body>
+    <h3>Time</h3>
+        <div class="incremental-input" id="time-input">
+	        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="5:00">
+        </div> 
+
+    <h3>Counter</h3>
+        <div class="incremental-input" id="counter-input">
+	        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="1">
+        </div> 
+
+<script src="Counter.js"></script>
+</body>
+</html>

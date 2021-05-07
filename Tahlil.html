@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()">Try It</button>
+<p><strong>Note:</strong> The geolocation property is not
+supported in IE8 and earlier versions.</p>
+<p id="demo"></p>
+<script>
+var x = document.getElementById("demo");
+// برای چک کردن اینکه روی مرورگر جواب میده یا ن
+function getLocation() {
+ if (navigator.geolocation) {
+//  اجرا میشود  getCurrentPosition()  ا اگر که مرورگر ساپورت میکرد  
+
+ navigator.geolocation.getCurrentPosition(showPosition);
+ //  در گرفتن موقعیت کاربر موفق بود از طریق پارامتری که به ان داده شده مختصات  را به ان ارسال میکند   getCurrentPosition() اگر   
+
+ } else {
+ x.innerHTML = "Geolocation is not supported by this browser.";
+ }
+}
+// در این فانکشن هم مختصات ارسال شده به صورت طول و عرض جغرافیایی در صفحه نمایش داده می شود
+function showPosition(position) {
+ x.innerHTML = "Latitude: " + position.coords.latitude +
+ "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</body>
+</html>

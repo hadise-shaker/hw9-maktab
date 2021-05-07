@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="counter">
+      <button id="increase" class="button">+</button>
+    <input id="counter" value="0" readonly >
+
+<button id="decrease"class="button">-</button>
+</div>
+
+
+<div class="time">
+  <button id="increase-time" class="button-time">+</button>
+    <input id="counter-time" value=23:00 readonly >
+
+    <button id="decrease-time"class="button-time">-</button>
+</div>
+<script>
+
+$(".button-time").on("click", function() {
+let num = 15;
+var $button_time = $(this);
+var oldValue_time = $button_time.parent().find("input").val().split(":").map(Number);
+console.log(oldValue_time);
+if ($button_time.text() == "+") {
+    var hour =parseInt(oldValue_time[0]);
+    var newVal_time = hour+":"+ parseInt(oldValue_time[1]+num);
+    if (parseInt(oldValue_time[1]+num)==60) {
+        oldValue_time[1]=00;
+        var newVal_time = hour+1+":"+ parseInt(oldValue_time[1])+0;
+        if (newVal_time=="24:00") {
+        var newVal_time = "00:00";
+    }else{
+        var newVal_time = hour+":"+ parseInt(oldValue_time[1]+num);
+        var newVal_time = hour+1+":"+ parseInt(oldValue_time[1])+0;
+    }
+    }
+/* 
+            23:15 
+            [0]
+*/
+  } 
+  if ($button_time.text() == "-") {
+    var hour =parseInt(oldValue_time[0]);
+    var newVal_time = hour+":"+ parseInt(oldValue_time[1]-num);
+    if (parseInt(oldValue_time[1]-num)===00) {
+        oldValue_time[1]="00";
+        var newVal_time = hour-1+":"+ parseInt(oldValue_time[1])+0;
+/*         if (newVal_time=="24:00") {
+        var newVal_time = "00:00";
+     }*/
+
+    }
+    if (oldValue_time[1]<=0) {
+        var newVal_time = hour-1+":"+ parseInt(oldValue_time[1]-num);
+     }/* else{
+        var newVal_time = hour-1+":"+ parseInt(oldValue_time[1]-num);
+/*         var newVal_time = hour-1+":"+ parseInt(oldValue_time[1])+0; 
+    } */
+    }
+
+
+
+
+  $button_time.parent().find("input").val(newVal_time);
+
+});
+ // Don't allow decrementing below zero
+/*   if (oldValue_time > 0) {
+    var newVal_time = parseInt(oldValue_time[1]-15);
+  } else {
+    newVal_time = 0; */
+
+
+
+
+
+
+
+///////////////////////////////////////////////
+$(".button").on("click", function() {
+
+var $button = $(this);
+var oldValue = $button.parent().find("input").val();
+
+if ($button.text() == "+") {
+    var newVal = parseInt(oldValue) + 1;
+  } else {
+ // Don't allow decrementing below zero
+  if (oldValue > 0) {
+    var newVal = parseInt(oldValue) - 1;
+  } else {
+    newVal = 0;
+  }
+}
+
+$button.parent().find("input").val(newVal);
+
+});
+
+
+</script>
+</body>
+</html>

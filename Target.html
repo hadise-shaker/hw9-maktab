@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+ 
+#slideshow {
+ margin: auto;
+ position: relative;
+ width: 400px;
+}
+ 
+ul {
+  list-style: none;
+}
+ 
+li {
+ float: left;
+ margin: 0 20px 0 0;
+ font-size: 24px;
+ 
+}
+ 
+li a {
+ color: #222;
+ text-decoration: none;
+ font-family: sans-serif;
+    transition: color 1s ease;
+}
+ 
+li a:hover {
+ color: red;
+}
+ 
+li img {
+  position: absolute;
+  width: 500px;
+  top: 50px;
+  left: -10%;
+  object-fit: contain;
+  /* z-index: -1; */
+ 
+}
+ 
+li img:target {
+ display: block;
+ /* z-index: 1; */
+
+}
+li img:target:hover {
+ opacity: 0.5;
+
+}
+
+ 
+li img:not(:target) {
+ display: none;
+/*  opacity: 0; */
+}
+    </style>
+</head>
+<body>
+<div id="slideshow">
+  <ul>
+    <li><a href="#one">One</a><img id="one" src="./img/1.jpg"/></li>
+    <li><a href="#two">Two</a> <img id="two" src="./img/2.jpg"/></li>
+    <li><a href="#three">Three</a> <img id="three" src="./img/3.jpg"/></li>
+    <li><a href="#four">Four</a> <img id="four" src="./img/4.jpg"/></li>
+    <li><a href="#five">Five</a> <img id="five" src="./img/5.jpg"/></li>
+  </ul>
+</div>
+</body>
+</html>
